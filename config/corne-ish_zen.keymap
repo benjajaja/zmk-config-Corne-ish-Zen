@@ -17,15 +17,16 @@
                 wait-ms = <0>;
                 #binding-cells = <0>;
                 bindings
-                    = <&macro_press &mo 1 &kp LGUI>
+                    = <&macro_press &mo 1 &kp LALT>
                     , <&macro_pause_for_release>
-                    , <&macro_release &mo 1 &kp LGUI>;
+                    , <&macro_release &mo 1 &kp LALT>;
             };
             email: email {
                 label = "Type email";
                 compatible = "zmk,behavior-macro";
                 wait-ms = <40>;
                 tap-ms = <40>;
+                #binding-cells = <0>;
                 bindings
                     = <&kp S &kp T &kp N3 &kp L &kp S>
                     , <&kp AT>
