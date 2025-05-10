@@ -33,7 +33,7 @@
                     , <&kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
             };
             email_work: email_work {
-                label = "Type email";
+                label = "Type work email";
                 compatible = "zmk,behavior-macro";
                 wait-ms = <5>;
                 tap-ms = <5>;
@@ -43,6 +43,16 @@
                     , <&kp AT>
                     , <&kp R &kp E &kp MINUS &kp C &kp A &kp P &kp DOT &kp C &kp O &kp M>;
             };
+        };
+        behaviors {
+          mts: mod_tap_slow {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <500>;
+            bindings = <&kp>, <&kp>;
+            label = "mod_tap_slow";
+          };
         };
         keymap {
                 compatible = "zmk,keymap";
@@ -57,7 +67,7 @@
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp CAPS  &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &mt LCTL MINUS &mt LALT Z &mt LGUI X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp EQUAL
+   &mt LCTL MINUS &mts LALT Z &mts LGUI X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp EQUAL
                   &xmonad &kp LSHFT &kp SPACE   &lt 2 RET &kp RSHFT &mt RALT F20
                         >;
                 };
@@ -65,8 +75,8 @@
                         label = "VISUAL";
                         bindings = <
    &kp Q   &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6  &kp N7  &kp N8  &kp N9  &kp P  &trans
-   &trans  &kp Q   &kp W   &kp E   &kp R   &kp T     &trans  &trans  &trans  &trans &kp C_BRI_DN &kp C_BRI_UP
-   &kp LSHFT &trans &trans &trans  &kp F20 &trans &trans  &trans  &trans  &trans &kp C_VOL_DN &kp C_VOL_UP
+   &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans &kp C_BRI_DN &kp C_BRI_UP
+   &kp LSHFT &trans &trans &trans  &kp F20 &trans    &trans  &trans  &trans  &trans &kp C_VOL_DN &kp C_VOL_UP
                            &trans  &trans  &trans    &kp RET &trans  &trans
                         >;
                 };
@@ -74,10 +84,10 @@
                 raise_layer {
                         label = "INSERT";
                         bindings = <
-   &kp GRAVE &kp N1   &kp N2    &kp N3    &kp N4   &kp N5      &kp N6   &kp N7   &kp N8   &kp N9    &kp N0   &kp BSLH
-   &kp TILDE &kp LBRC &kp PG_UP &kp PG_DN &kp END  &kp HOME    &kp LEFT &kp DOWN &kp UP   &kp RIGHT &kp RBRC &kp PIPE
-   &kp LBKT  &kp EXCL &kp AT    &kp HASH  &kp DLLR &kp PRCNT  &kp CARET &kp AMPS &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp RBKT
-                                &trans    &lt 3   &trans      &trans   &trans   &trans
+   &kp GRAVE &kp N1   &kp N2    &kp N3    &kp N4   &kp N5    &kp N6   &kp N7   &kp N8   &kp N9    &kp N0   &kp BSLH
+   &kp TILDE &kp LBRC &kp PG_UP &kp PG_DN &kp END  &kp HOME  &kp LEFT &kp DOWN &kp UP   &kp RIGHT &kp RBRC &kp PIPE
+   &kp LBKT  &kp EXCL &kp AT    &kp HASH  &kp DLLR &kp PRCNT &kp CARET &kp AMPS &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp RBKT
+                                &trans    &lt 3   &trans     &trans   &trans   &trans
                         >;
                 };
 
